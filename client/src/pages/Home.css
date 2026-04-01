@@ -1,0 +1,14 @@
+.home-page {
+    padding: 2rem;
+}
+
+.home-page h1 {
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}

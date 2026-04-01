@@ -1,0 +1,12 @@
+.watchlist-page {
+    padding: 2rem;
+}
+
+.watchlist-empty {
+    padding: 4rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    text-align: center;
+    color: #888;
+    border: 1px dashed var(--border-color);
+}
