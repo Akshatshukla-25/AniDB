@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import AnimeCard from '../components/AnimeCard';
+import MovieCard from '../components/MovieCard';
 import { fetchAnimeList } from '../services/api';
 import './Home.css';
 
@@ -18,17 +18,24 @@ const Home = () => {
 
     return (
         <div className="home-page">
-            <h1>Popular Anime</h1>
+            <h1>Trending</h1>
             {loading ? (
-                <p>Loading popular anime...</p>
+                <p>Loading trending shows...</p>
             ) : (
-                <div className="anime-grid">
-                    {animeList.map(anime => (
-                        <AnimeCard
+                <div className="movie-grid">
+                    {animeList.map((anime, index) => (
+                        <MovieCard
                             key={anime.mal_id}
                             id={anime.mal_id}
                             title={anime.title}
-                            image={anime.images?.jpg?.image_url}
+                            poster={anime.images?.jpg?.image_url}
+                            year={anime.year || anime.aired?.prop?.from?.year || 'Unknown'}
+                            duration={anime.duration || '24m'}
+                            ageRating={anime.rating ? anime.rating.split(' ')[0] : 'TV-MA'}
+                            rating={anime.score || 'N/A'}
+                            ratingCount={anime.scored_by ? (anime.scored_by / 1000).toFixed(1) + 'K' : '0'}
+                            description={anime.synopsis || "No description provided."}
+                            rank={anime.rank || (index + 1)}
                         />
                     ))}
                 </div>
