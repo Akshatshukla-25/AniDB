@@ -1,0 +1,10 @@
+.home-page h1 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
