@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="AniRate — Search thousands of anime titles by name. Find your next favorite show." />
+    <title>AniRate — Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="search.css" />
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <a href="home.html" class="nav-logo" id="nav-logo">
+            <span class="logo-icon">▶</span> AniRate
+        </a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="home.html" class="nav-link" id="nav-home">Home</a></li>
+            <li><a href="search.html" class="nav-link active" id="nav-search">Search</a></li>
+            <li><a href="watchlist.html" class="nav-link" id="nav-watchlist">Watchlist</a></li>
+        </ul>
+    </nav>
+
+    <!-- Search Hero -->
+    <header id="search-hero">
+        <div class="search-hero-bg"></div>
+        <div class="search-hero-content">
+            <h1 class="search-hero-title">Search <span class="gradient-text">Anime</span></h1>
+            <p class="search-hero-subtitle">Find any anime by title from a library of thousands</p>
+            <div class="search-bar-wrapper" id="search-bar-wrapper">
+                <svg class="search-bar-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" class="search-bar-input" id="search-input"
+                    placeholder="Type an anime name and press Enter…" autofocus />
+                <button class="search-bar-btn" id="search-btn">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filter Bar -->
+    <section class="filter-bar" id="filter-bar">
+        <div class="filter-bar-inner">
+            <div class="filter-group">
+                <label class="filter-label" for="filter-type">Type</label>
+                <select class="filter-select" id="filter-type">
+                    <option value="">All</option>
+                    <option value="tv">TV</option>
+                    <option value="movie">Movie</option>
+                    <option value="ova">OVA</option>
+                    <option value="special">Special</option>
+                    <option value="ona">ONA</option>
+                    <option value="music">Music</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label" for="filter-status">Status</label>
+                <select class="filter-select" id="filter-status">
+                    <option value="">All</option>
+                    <option value="airing">Airing</option>
+                    <option value="complete">Completed</option>
+                    <option value="upcoming">Upcoming</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label" for="filter-rating">Rating</label>
+                <select class="filter-select" id="filter-rating">
+                    <option value="">All</option>
+                    <option value="g">G – All Ages</option>
+                    <option value="pg">PG – Children</option>
+                    <option value="pg13">PG-13</option>
+                    <option value="r17">R – 17+</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label" for="filter-sort">Sort By</label>
+                <select class="filter-select" id="filter-sort">
+                    <option value="">Relevance</option>
+                    <option value="score">Score</option>
+                    <option value="start_date">Start Date</option>
+                    <option value="episodes">Episodes</option>
+                    <option value="members">Popularity</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="results-section" id="results-section">
+        <p class="results-info" id="results-info"></p>
+        <div class="anime-grid" id="results-grid">
+            <!-- Cards injected by JS -->
+        </div>
+        <div class="loader hidden" id="results-loader">
+            <div class="spinner"></div>
+            <p>Searching anime…</p>
+        </div>
+        <!-- Empty State -->
+        <div class="empty-state" id="empty-state">
+            <div class="empty-icon">🔍</div>
+            <h2>Start searching</h2>
+            <p>Enter an anime title above to discover shows</p>
+        </div>
+        <!-- No Results -->
+        <div class="no-results hidden" id="no-results">
+            <div class="empty-icon">😔</div>
+            <h2>No results found</h2>
+            <p>Try a different keyword or adjust your filters</p>
+        </div>
+        <!-- Pagination -->
+        <div class="pagination hidden" id="pagination">
+            <button class="page-btn" id="page-prev" disabled>← Previous</button>
+            <span class="page-info" id="page-info">Page 1</span>
+            <button class="page-btn" id="page-next">Next →</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p>© 2026 <strong>AniRate</strong> — Powered by <a href="https://jikan.moe" target="_blank"
+                rel="noopener">Jikan API</a></p>
+    </footer>
+
+    <script src="api.js"></script>
+    <script src="search.js"></script>
+</body>
+
+</html>
